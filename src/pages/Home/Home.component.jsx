@@ -4,7 +4,9 @@ import './Home.style.scss';
 
 const HomePage = () => {
   return (
-    <div>Home page!</div>
+    <div className="page-container home-page">
+      <h1 className="page-title">The fellowship of the tretton37</h1>
+    </div>
   );
 };
 
