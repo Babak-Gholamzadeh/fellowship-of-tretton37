@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ToolsBox from '../../components/ToolsBox/ToolsBox.component';
 import CardList from '../../components/CardList/CardList.component';
+import Spinning from '../../components/Spinning/Spinning.component';
 import { useApi, APIs } from '../../api';
 
 import './Home.style.scss';
@@ -28,7 +29,7 @@ const HomePage = () => {
   }
 
   if (!data || loading) {
-    return <div>loading...</div>;
+    return <Spinning />;
   }
 
   const sortBy = (fieldName) => {
