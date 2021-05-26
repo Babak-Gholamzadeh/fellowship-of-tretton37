@@ -6,9 +6,14 @@ import { useApi, APIs } from '../../api';
 import './Home.style.scss';
 
 const HomePage = () => {
-  const [{ data, error, loading }, getUsers] = useApi(APIs.GET_ALL_USERS);
+  const [{data, error, loading}, getUsers] = useApi(APIs.GET_ALL_USERS);
   const [list, setList] = useState([]);
   const [sortOption, setSortOption] = useState('name');
+  const [filterOptions, setFilterOptions] = useState({
+    name: '',
+    office: '',
+    contact: '',
+  });
 
   useEffect(() => {
     getUsers();
@@ -34,12 +39,34 @@ const HomePage = () => {
     setSortOption(fieldName);
   };
 
+  const filterBy = ({ name, office, contact }) => {
+    const regName = new RegExp(name, 'i');
+    const regOffice = new RegExp(office, 'i');
+    const regContact = new RegExp(contact, 'i');
+    const filteredList = data.filter((item) => {
+      if (name && !regName.test(item.name)) return false;
+      if (office && (!item.office || !regOffice.test(item.office)))
+        return false;
+      if (
+        contact &&
+        (!item.gitHub || !regContact.test(item.gitHub)) &&
+        (!item.twitter || !regContact.test(item.twitter))
+      )
+        return false;
+      return true;
+    });
+    setList(filteredList);
+    setFilterOptions({ name, office, contact });
+  };
+
   return (
     <div className="page-container home-page">
       <h1 className="page-title">The fellowship of the tretton37</h1>
       <ToolsBox
         sortBy={sortBy}
         sortOption={sortOption}
+        filterBy={filterBy}
+        filterOptions={filterOptions}
       />
       <CardList list={list} />
     </div>
