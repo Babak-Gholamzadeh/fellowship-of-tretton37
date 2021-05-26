@@ -1,70 +1,161 @@
-# Getting Started with Create React App
+# The fellowship of the tretton37
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a test project with the aim of displaying the employee's information of a company and along with the ability to do some operations (i.e. sort, filter) on the information.
 
-## Available Scripts
+You can check the project from [here](https://fellowship-of-tretton37.herokuapp.com/).
 
-In the project directory, you can run:
+---
+## The thoughts  behind choosing the features
 
-### `yarn start`
+The implementation of the project includes several features that are categories into three groups i.e. `_design/accessibility`, `_functionality` and `_testing/QA` that each of which contains more detailed features.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+According to the assignment description and the process of implementing the features, I chose some of them to be implemented in the first iteration of the development phase based on my experience, skills, and the time and efficiency of the features that could impact the project for current and future development process.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The list of features I chose are as below:
 
-### `yarn test`
+**_design/accessibility:**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Responsive design, works on mobile and tablets
 
-### `yarn build`
+> Because nowadays most of the users use mobile and tables to explore the internet and applications, so it is the main factor for - even MVP - applications to support mobile devices.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- No UI framework used (such as Bootstrap, Ant)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+> Style the application without using some frameworks - that are existed for this purpose - is kind of decision that if you take it at the beginning of the development, makes your further development process easier (compare to the situation that at the middle of development decide to not use CSS frameworks).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**_functionality:**
 
-### `yarn eject`
+- Sort by name and office
+- Filter by name and office
+- Filter by contact links (such as Twitter or GitHub)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+> I chose to implement these three features because, in my opinion, they are kind of the main part of the functionality of the whole of the project.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Available on a free public url (such as Azure, Heroku)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+> Because it makes the application be more available and accessible that causes it to be reviewed much faster and simpler.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+**_testing/QA:**
 
-## Learn More
+- Works in Chrome, Firefox, Edge
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+> Making the project be able to run on all the main browsers is the essential consideration of any frontend developer that should always care about it.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Works in IE11
 
-### Code Splitting
+> In my opinion, working in IE11 at this phase is not essential but it was sometimes easy to achive.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Unit tests for existing functionality (reasonable coverage)
 
-### Analyzing the Bundle Size
+> Writing test for any project has always been the main consideration which has a direct impact on the quality of the project. But I should admit that I'm not very satisfied with the coverage of the test in this project yet.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+### Start the Project
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+In order to run the project, you need to clone the repository.
 
-### Advanced Configuration
+For cloning the repository, first, you need to go to the desire directory and then run the command below:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```bash
+git clone https://github.com/Babak-Gholamzadeh/fellowship-of-tretton37.git
+```
 
-### Deployment
+After that, a directory would be created with the name of `fellowship-of-tretton37`, which you should go into that.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```bash
+cd ./fellowship-of-tretton37
+```
 
-### `yarn build` fails to minify
+#### Config the Project
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Here there exists a file named `.env.example` which contains an environment variable for storing an authorization token that is used for calling an API.
+
+You should rename it to `.env` and fill the variable.
+
+```bash
+mv .env.example .env
+```
+
+Put your token inside the file:
+
+```
+REACT_APP_GRAPHQL_SERVER_URL = [your token]
+```
+
+#### Install the Project Dependencies
+
+Now you need to install the dependencies by running the following code:
+
+```bash
+npm install
+```
+
+or
+
+```bash
+yarn install
+```
+
+After installing the dependencies, the project is ready to be run.
+
+#### Run the Project
+
+If you are familiar with the [create-react-app](https://create-react-app.dev/) tool, you probably already know about the useful scripts inside the `package.json` file that you can take advantage of them.
+
+Run the project in development mode:
+
+```bash
+npm start
+```
+
+*Or use `yarn` if it works better for you*
+
+Now the project is ready, and you can play with that.
+
+#### Test the project
+
+There are some unit tests in the project that you can run them by running the command below:
+
+```bash
+npm test
+```
+
+*Be aware that this command hold the state of running tests in watching mode, and it will run the tests again by changing any part of the code*
+
+#### Build the Project
+
+After you are done with the development, you can build the project by running the command below and generate a simple `html` file with some bundled `js` and `css` files.
+
+```bash
+npm run build
+```
+
+*For running the built project you need a webserver to serve the `html` file to the client. You can use existing packages for that or create your own web server.*
+
+---
+
+### Project Directory Structure
+
+```bash
++---public
+\---src
+    |   App.js                  # App components which handle the page components
+    |   index.js                # Project entry point
+    +---api                     # Custom hook that is used for calling the APIs
+    +---assets                  # Static files that are imported in the Components
+    |   \---images
+    +---components              # All the Components of the project
+    |   +---CardList            # The component for showing the list of user information
+    |   |   \---CardItem        # Display the information of each user
+    |   +---ErrorMsg            # Show the error messages more friendly
+    |   +---Spinning            # Show an spinning animation on the loading process of fetching data
+    |   \---ToolsBox            # Contains the tools (filter, sort) for some operations on the user information
+    |       +---Filter          # Contains name, office and contact link filters
+    |       |   \---TextInput
+    |       \---Sort            # Sort the users by their name or office
+    |           \---RadioInput
+    \---pages
+        \---Home                # The layout to represent the required components on the Home page and track some necessary states
+    \---utils
+```
