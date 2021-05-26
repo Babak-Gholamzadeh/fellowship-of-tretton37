@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ToolsBox from '../../components/ToolsBox/ToolsBox.component';
 import CardList from '../../components/CardList/CardList.component';
 import Spinning from '../../components/Spinning/Spinning.component';
+import ErrorMsg from '../../components/ErrorMsg/ErrorMsg.component';
 import { useApi, APIs } from '../../api';
 
 import './Home.style.scss';
@@ -25,7 +26,7 @@ const HomePage = () => {
   }, [data]);
 
   if (error) {
-    return <div>{error.message}</div>;
+    return <ErrorMsg>{error.message}</ErrorMsg>;
   }
 
   if (!data || loading) {
