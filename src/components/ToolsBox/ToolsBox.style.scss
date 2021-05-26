@@ -1,0 +1,12 @@
+.tools-box {
+  margin: 0 15px;
+  box-shadow: 0 5px 10px 5px rgba(#000, 0.1);
+  padding: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+  .tools-box {
+    margin: 0 5px;
+    padding: 10px;
+  }
+}
